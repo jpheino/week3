@@ -1,11 +1,16 @@
-with open("exercise3.txt") as file:
-    pituus = 0
 
-    testi = ""
+try:
+    with open("exercise3.txt") as file:
+        pituus = 0
 
-    for d in sorted(file):
-        if len(testi) < len(d):
-            print(d)
-            testi = d
-        else:
-            print(d)
+        testi = ""
+
+        for d in sorted(file):
+            if len(testi) < len(d):
+                print(d)
+                testi = d
+            else:
+                print(d)
+
+except:
+    print("file not found")
