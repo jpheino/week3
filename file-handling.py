@@ -1,8 +1,11 @@
 with open("exercise3.txt") as file:
-    for line in file:
-        line = line.replace("\n", "")
-        
+    pituus = 0
 
+    testi = ""
 
-for d in sorted(data):
-    print(d)
+    for d in sorted(file):
+        if len(testi) < len(d):
+            print(d)
+            testi = d
+        else:
+            print(d)
