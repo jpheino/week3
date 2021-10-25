@@ -1,10 +1,7 @@
-from urllib.request import urlopen
-import json
-url = "https://api.github.com/search/repositories?q=language:python"
+import requests
 
+sr = requests.get('https://api.github.com/search/repositories?q=language:python')
+data = sr.json()
 
-
-response = urlopen(url)
-data_json = json.loads(response.read())
-for data in data_json["items"]:
-    print(f'{data["name"]} {data["forks"]}')
+for d in sorted(data['items'], key=lambda x: x['forks'], reverse=True):
+    print(f'{d["forks"]}. {d["name"]}: {d["description"]}')
